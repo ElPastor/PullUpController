@@ -8,6 +8,7 @@
 
 import UIKit
 
+@objc
 open class PullUpController: UIViewController {
     
     public enum Action {
@@ -476,6 +477,7 @@ extension UIViewController {
      - parameter initialStickyPointOffset: The point where the provided `pullUpController`'s view will be initially placed expressed in screen units of the pull up controller coordinate system. If this value is not provided, the `pullUpController`'s view will be initially placed expressed
      - parameter animated: Pass true to animate the adding; otherwise, pass false.
      */
+    @objc
     open func addPullUpController(_ pullUpController: PullUpController,
                                   initialStickyPointOffset: CGFloat,
                                   animated: Bool) {
@@ -500,6 +502,7 @@ extension UIViewController {
      - parameter pullUpController: the pull up controller to remove as a child from the current view controller.
      - parameter animated: Pass true to animate the removing; otherwise, pass false.
      */
+    @objc
     open func removePullUpController(_ pullUpController: PullUpController, animated: Bool) {
         pullUpController.hide()
         if animated {

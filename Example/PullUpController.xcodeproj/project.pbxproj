@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
+		8919C6BA2363A4790046A14D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8919C6B92363A4790046A14D /* ViewController.m */; };
 		AC44912120DBFFBE00F98838 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC44911920DBFFBE00F98838 /* LaunchScreen.storyboard */; };
 		AC44912320DBFFBE00F98838 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC44911C20DBFFBE00F98838 /* SearchViewController.swift */; };
 		AC44912420DBFFBE00F98838 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC44911D20DBFFBE00F98838 /* MapViewController.swift */; };
@@ -24,6 +25,9 @@
 		607FACD01AFB9204008FA782 /* PullUpController_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PullUpController_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D13751B90ADB8E6A7085A3F /* Pods-PullUpController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PullUpController_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-PullUpController_Example/Pods-PullUpController_Example.release.xcconfig"; sourceTree = "<group>"; };
+		8919C6B72363A4790046A14D /* PullUpController_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PullUpController_Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		8919C6B82363A4790046A14D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		8919C6B92363A4790046A14D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		94B8AB427B262E433795430A /* Pods-PullUpController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PullUpController_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PullUpController_Tests/Pods-PullUpController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		9AB34C6007A366EB15327B6E /* Pods-PullUpController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PullUpController_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PullUpController_Example/Pods-PullUpController_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		AC44911920DBFFBE00F98838 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,6 +80,9 @@
 				AC44912020DBFFBE00F98838 /* Assets.xcassets */,
 				AC44911820DBFFBE00F98838 /* Supporting files */,
 				AC44911B20DBFFBE00F98838 /* UI */,
+				8919C6B82363A4790046A14D /* ViewController.h */,
+				8919C6B92363A4790046A14D /* ViewController.m */,
+				8919C6B72363A4790046A14D /* PullUpController_Example-Bridging-Header.h */,
 			);
 			name = "Example for PullUpController";
 			path = PullUpController;
@@ -166,7 +173,7 @@
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = X9253HG4XT;
-						LastSwiftMigration = 1020;
+						LastSwiftMigration = 1110;
 					};
 				};
 			};
@@ -249,6 +256,7 @@
 				AC44912420DBFFBE00F98838 /* MapViewController.swift in Sources */,
 				AC44912520DBFFBE00F98838 /* SearchResultCell.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				8919C6BA2363A4790046A14D /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,12 +373,16 @@
 			baseConfigurationReference = 9AB34C6007A366EB15327B6E /* Pods-PullUpController_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = X9253HG4XT;
 				INFOPLIST_FILE = "$(SRCROOT)/PullUpController/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.marioiannotta.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PullUpController/PullUpController_Example-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -380,12 +392,15 @@
 			baseConfigurationReference = 6D13751B90ADB8E6A7085A3F /* Pods-PullUpController_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = X9253HG4XT;
 				INFOPLIST_FILE = "$(SRCROOT)/PullUpController/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.marioiannotta.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PullUpController/PullUpController_Example-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
