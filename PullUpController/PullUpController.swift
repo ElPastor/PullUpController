@@ -241,6 +241,8 @@ open class PullUpController: UIViewController {
     // MARK: - Setup
     
     fileprivate func setup(superview: UIView, initialStickyPointOffset: CGFloat) {
+        setupBackgroundView()
+
         self.initialStickyPointOffset = initialStickyPointOffset
         view.translatesAutoresizingMaskIntoConstraints = false
         superview.addSubview(view)
@@ -250,7 +252,6 @@ open class PullUpController: UIViewController {
         
         setupPanGestureRecognizer()
         setupConstraints()
-        setupBackgroundView()
         refreshConstraints(newSize: superview.frame.size,
                            customTopOffset: superview.frame.height - initialStickyPointOffset)
     }
@@ -302,7 +303,7 @@ open class PullUpController: UIViewController {
         bgView!.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         bgView?.translatesAutoresizingMaskIntoConstraints = false
         
-        parentView.insertSubview(bgView!, belowSubview: view)
+        parentView.addSubview(bgView!)
         
         bgTopConstraint = bgView!.topAnchor.constraint(equalTo: parentView.topAnchor)
         bgLeftConstraint = bgView!.leftAnchor.constraint(equalTo: parentView.leftAnchor)
