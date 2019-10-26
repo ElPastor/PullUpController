@@ -414,6 +414,10 @@ open class PullUpController: UIViewController {
         default:
             break
         }
+        
+        if bgView != nil {
+            bgView!.alpha = 1 - topConstraint.constant / bgView!.frame.size.height
+        }
     }
     
     private func goToNearestStickyPoint(verticalVelocity: CGFloat) {
@@ -502,6 +506,7 @@ open class PullUpController: UIViewController {
             let parentViewHeight = parent?.view.frame.height
             else { return }
         topConstraint?.constant = parentViewHeight
+        bgView?.removeFromSuperview()
     }
     
 }
