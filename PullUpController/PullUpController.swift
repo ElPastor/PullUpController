@@ -318,6 +318,7 @@ open class PullUpController: UIViewController {
                                     bgWidthConstraint,
                                     bgHeightConstraint].compactMap { $0 }
         NSLayoutConstraint.activate(constraintsToActivate)
+        parentView.layoutIfNeeded()
     }
     
     private func refreshConstraints(newSize: CGSize, customTopOffset: CGFloat? = nil) {
