@@ -102,7 +102,16 @@ open class PullUpController: UIViewController {
     private var widthConstraint: NSLayoutConstraint?
     private var heightConstraint: NSLayoutConstraint?
     private var panGestureRecognizer: UIPanGestureRecognizer?
-    
+
+    private var bgLeftConstraint: NSLayoutConstraint?
+    private var bgTopConstraint: NSLayoutConstraint?
+    private var bgBottomConstraint: NSLayoutConstraint?
+    private var bgRightConstraint: NSLayoutConstraint?
+    private var bgWidthConstraint: NSLayoutConstraint?
+    private var bgHeightConstraint: NSLayoutConstraint?
+
+    fileprivate var bgView: UIView?
+
     private var isPortrait: Bool {
         return UIScreen.main.bounds.height > UIScreen.main.bounds.width
     }
@@ -241,6 +250,7 @@ open class PullUpController: UIViewController {
         
         setupPanGestureRecognizer()
         setupConstraints()
+        setupBackgroundView()
         refreshConstraints(newSize: superview.frame.size,
                            customTopOffset: superview.frame.height - initialStickyPointOffset)
     }
@@ -280,6 +290,33 @@ open class PullUpController: UIViewController {
                                      widthConstraint,
                                      heightConstraint,
                                      bottomConstraint].compactMap { $0 }
+        NSLayoutConstraint.activate(constraintsToActivate)
+    }
+    
+    private func setupBackgroundView() {
+        guard
+            let parentView = parent?.view
+            else { return }
+
+        bgView = UIView()
+        bgView!.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        bgView?.translatesAutoresizingMaskIntoConstraints = false
+        
+        parentView.insertSubview(bgView!, belowSubview: view)
+        
+        bgTopConstraint = bgView!.topAnchor.constraint(equalTo: parentView.topAnchor)
+        bgLeftConstraint = bgView!.leftAnchor.constraint(equalTo: parentView.leftAnchor)
+        bgRightConstraint = parentView.rightAnchor.constraint(equalTo: bgView!.rightAnchor)
+        bgBottomConstraint = parentView.bottomAnchor.constraint(equalTo: bgView!.bottomAnchor)
+        bgWidthConstraint = view.widthAnchor.constraint(equalToConstant: pullUpControllerPreferredSize.width)
+        bgHeightConstraint = view.heightAnchor.constraint(equalToConstant: pullUpControllerPreferredSize.height)
+
+        let constraintsToActivate = [bgTopConstraint,
+                                     bgLeftConstraint,
+                                     bgRightConstraint,
+                                     bgBottomConstraint,
+                                    bgWidthConstraint,
+                                    bgHeightConstraint].compactMap { $0 }
         NSLayoutConstraint.activate(constraintsToActivate)
     }
     
